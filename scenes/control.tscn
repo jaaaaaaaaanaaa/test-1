@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bu8tetwqivlet"]
+
+[ext_resource type="Script" uid="uid://efxn32cnkbaw" path="res://control.gd" id="1_62e2m"]
+
+[node name="Control" type="Control" unique_id=907445411 node_paths=PackedStringArray("label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_62e2m")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="." unique_id=904240941]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.035
+offset_left = 230.0
+offset_top = 78.0
+offset_right = 963.416
+offset_bottom = 366.32
+
+[node name="get_name" type="TextEdit" parent="." unique_id=829886176]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 482.0
+offset_right = 533.0
+offset_bottom = 579.0
+
+[node name="get_age" type="TextEdit" parent="." unique_id=1930261144]
+layout_mode = 0
+offset_left = 610.0
+offset_top = 477.0
+offset_right = 1035.0
+offset_bottom = 574.0
+
+[connection signal="text_changed" from="get_name" to="." method="_on_get_name_text_changed"]

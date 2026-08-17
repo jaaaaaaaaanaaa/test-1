@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://drlnyws1sq1sv"]
+
+[ext_resource type="PackedScene" uid="uid://c6t2gqjrc5gj" path="res://scenes/spin_test.tscn" id="1_5yv6h"]
+[ext_resource type="Script" uid="uid://cf2avybevdjk7" path="res://math.gd" id="3_3qbmy"]
+
+[node name="Node3D" type="Node3D" unique_id=1824639367]
+
+[node name="SpinTest" parent="." unique_id=1394694983 instance=ExtResource("1_5yv6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="SpinTest2" parent="." unique_id=903904453 instance=ExtResource("1_5yv6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38331413, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=378980937]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 1, 1, 2)
+
+[node name="Math" type="Node" parent="." unique_id=418377180]
+script = ExtResource("3_3qbmy")
+metadata/_custom_type_script = "uid://cf2avybevdjk7"
+
+[editable path="SpinTest"]
+[editable path="SpinTest2"]

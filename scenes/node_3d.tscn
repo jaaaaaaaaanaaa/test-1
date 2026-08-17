@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://fh60awsl3j23"]
+
+[ext_resource type="Script" uid="uid://cftg64fsounjd" path="res://scripts/node_3d.gd" id="1_xvgsr"]
+[ext_resource type="Script" uid="uid://btk1fxv2fhm2e" path="res://scripts/camera_3d.gd" id="2_oqwcg"]
+[ext_resource type="Script" uid="uid://cx5ehwnunpvif" path="res://scripts/rigid_body_3d.gd" id="3_a6664"]
+[ext_resource type="PackedScene" uid="uid://m4tj3nvppkc5" path="res://models/Robot_Pedestal.glb" id="4_10v3s"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_noarx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_noarx"]
+size = Vector3(0.43933105, 0.50115967, 0.4321289)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_83jjg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ie3rv"]
+size = Vector3(2, 0.1, 2)
+
+[node name="Node3D" type="Node3D" unique_id=133181243]
+transform = Transform3D(0.99978864, 0.020557739, 0, -0.020557739, 0.99978864, 0, 0, 0, 1, 0, -1.0451357, 0)
+script = ExtResource("1_xvgsr")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=593840745]
+transform = Transform3D(1.0000001, 5.5879354e-09, 0, -3.7252903e-09, 1.0000001, 0, 0, 0, 1, 0.01234067, 0.2767564, 0.5778989)
+script = ExtResource("2_oqwcg")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1543203430]
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+script = ExtResource("3_a6664")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=610144606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.043792725, 1.0477414, -0.003426455)
+shape = SubResource("BoxShape3D_noarx")
+
+[node name="empty_1" parent="RigidBody3D" unique_id=1374055584 instance=ExtResource("4_10v3s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22091205, 0.07473872, 0)
+
+[node name="Node3D" type="Node3D" parent="." unique_id=145769308]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D" unique_id=1834857335]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/StaticBody3D" unique_id=1506274092]
+mesh = SubResource("PlaneMesh_83jjg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D" unique_id=1845505664]
+shape = SubResource("BoxShape3D_ie3rv")

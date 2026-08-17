@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c6t2gqjrc5gj"]
+
+[ext_resource type="Script" uid="uid://bf7m5nxhjb22b" path="res://scripts/spin_test.gd" id="1_uyqtb"]
+[ext_resource type="PackedScene" uid="uid://m4tj3nvppkc5" path="res://models/Robot_Pedestal.glb" id="2_hskq4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xpqiu"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_4g2d5"]
+sky_material = SubResource("ProceduralSkyMaterial_xpqiu")
+
+[sub_resource type="Environment" id="Environment_av0qi"]
+background_mode = 2
+sky = SubResource("Sky_4g2d5")
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ie3rv"]
+size = Vector2(1, 2)
+
+[node name="SpinTest" type="Node3D" unique_id=1394694983 node_paths=PackedStringArray("pedestal")]
+script = ExtResource("1_uyqtb")
+pedestal = NodePath("Pedestal")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=603835950]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1443872644]
+environment = SubResource("Environment_av0qi")
+
+[node name="Pedestal" parent="." unique_id=1426832464 instance=ExtResource("2_hskq4")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=459585151]
+mesh = SubResource("PlaneMesh_ie3rv")
