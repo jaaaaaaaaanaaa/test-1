@@ -6,3 +6,4 @@ class_name SpinTest
 
 func _process(delta: float) -> void:
 	pedestal.rotate_y(rotation_speeds * delta)
+#Test
